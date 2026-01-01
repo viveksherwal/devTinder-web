@@ -114,11 +114,14 @@ const NavBar = () => {
                 <Link to="/connections">Connections</Link>
               </li>
               <li>
+                <Link to="/Requests">Requests</Link>
+              </li>
+              <li>
                 <a onClick={handleLogout}>Logout</a>
               </li>
             </ul>
           </div>
-        </div> // ✅ this closing div was missing
+        </div> 
       )}
     </div>
   );

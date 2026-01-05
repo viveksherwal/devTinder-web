@@ -1,4 +1,4 @@
-import React, { use } from 'react'
+import { useEffect } from 'react'
 import NavBar from './NavBar'
 import { Outlet } from 'react-router-dom'
 import Footer from './Footer'
@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { addUser } from '../utils/userSlice'
 import axios from 'axios'
-import { useEffect } from 'react'
 import { BASE_URL } from '../utils/constants'
 
 const Body = () => {
@@ -15,21 +14,23 @@ const Body = () => {
   const userData = useSelector((store) => store.user);
 
   const fetchUser = async () => {
-    if(userData) return;
     try{
       const res = await axios.get(BASE_URL+"/profile/view",{withCredentials:true});
       dispatch(addUser(res.data));
     }catch(err){
-      if(err.status==401){
+      if(err.response?.status === 401){
         navigate('/login');
       }
-      // console.error(err);
+      console.error("Auth check failed:", err);
     }
   };
 
   useEffect(() => {
-    fetchUser();
-  }, []);
+    // Only fetch user if not already in store
+    if (!userData) {
+      fetchUser();
+    }
+  }, []); // Remove userData dependency to prevent infinite loops
 
 
   return (

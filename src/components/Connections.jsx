@@ -41,7 +41,7 @@ const Connections = () => {
                 key={_id}
                 className='flex m-4 p-4 rounded-lg bg-base-300 w-1/3 mx-auto'>
                     <div>
-                        <img src={photoUrl} alt="photo" className='w-20 h-20 rounded-full' />
+                        <img src={photoUrl} alt="photo" className='w-20 h-20  object-cover rounded-full' />
                     </div>
                     <div className='text-left mx-4'>
                         <h2 className='font-bold text-xl'>

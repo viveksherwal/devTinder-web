@@ -28,3 +28,26 @@ Route = /profile =>Profile
     ->npm install pm2 -g
     ->pm2 start npm -- start //pm2 start npm --name "devTinder-backend" -- start
     ->pm2 list ,pm2 flush <name>,pm2 stop <namae>,pm2 delete <name>
+    sudo nano /etc/nginx/sites-available/default
+
+
+
+#sending Email via SES
+
+-creaate a IAM user
+-gie access to amazonsesFullAccess
+-Amazon SES:create an Identitiy
+-verify  your domain name 
+-verify an email address
+
+#scheduling cron jobs i nodJS
+ -Installing node-cron
+ -learning about crin expressions syntax - crontab.guru
+ -scheduling a job 
+ -date-fns
+ -find all the unique email ID who get conneciton request in preview dat 
+ -send email 
+ -explore queue mechanism to send bulk emails
+ -Amazon ses bulk emails
+ -make sendEmail funtion dynamic 
+ -bee-queue & bull npm packages
